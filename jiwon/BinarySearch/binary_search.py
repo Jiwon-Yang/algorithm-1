@@ -1,14 +1,34 @@
-def binarySearch(array, target):
-    left = 0
-    right = len(array) - 1
+def bs(arr, target):
+    start = 0
+    end = len(arr)-1
 
-    while left <= right:
-        mid = (left + right) // 2
-        if array[mid] == target:
+    while start <= end:
+        mid = (start + end) // 2
+
+        if target == arr[mid]:
             return mid
-        elif array[mid] < target:
-            left = mid + 1
+        elif target < arr[mid]:
+            end = start - 1
         else:
-            right = mid - 1
+            start = end + 1
 
     return -1
+
+
+def solution(n, t, a):
+    s = 0
+    e = max(a)
+    res = 0
+
+    while s <= e:
+        mid = (s + e) // 2
+        sumValue = 0
+        for x in a:
+            if x > mid:
+                diff = x - mid
+                sumValue += diff
+        if sumValue < t:
+            e = mid - 1
+        else:
+            res = sumValue
+            s = mid + 1

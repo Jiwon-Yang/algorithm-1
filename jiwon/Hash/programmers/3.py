@@ -14,6 +14,8 @@ def solution(clothes):
     for value in map.values():
         answer *= len(value) + 1
 
+
+    map.keys()
     return answer - 1
 
 
